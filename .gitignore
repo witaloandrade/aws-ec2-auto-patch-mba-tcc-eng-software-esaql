@@ -1,0 +1,5 @@
+.venv
+.temp
+.terraform
+*.tfstate*
+.terraform*
