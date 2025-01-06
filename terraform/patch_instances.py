@@ -21,6 +21,7 @@ def list_ec2_instances_by_tag() -> List[str]:
     List EC2 instances with the current week-day-hour tag.
     """
     now = datetime.now(timezone.utc)
+    logger.info(f'Current UTC time is {now}')
     
     week_name = {
         1: 'first',
@@ -60,7 +61,7 @@ def list_ec2_instances_by_tag() -> List[str]:
         for reservation in response['Reservations']
         for instance in reservation['Instances']
     ]
-    logger.info("Found instances: %s", instance_ids)
+    logger.info("Found instances: %s to be patched", instance_ids)
     return instance_ids
 
 def patch_instances(instances: List[str]) -> None:
@@ -79,7 +80,7 @@ def patch_instances(instances: List[str]) -> None:
                 Parameters={'Operation': ['Install']}
             )
             if response['ResponseMetadata']['HTTPStatusCode'] == 200:
-                logger.info(f"Sent command to patch instance {instance}: {response['Command']['CommandId']}")
+                logger.info(f"Success to send command to patch instance {instance}: {response['Command']['CommandId']}")
             else:
                 logger.error(f"Failed to send command to instance {instance}")
         except Exception as e:
