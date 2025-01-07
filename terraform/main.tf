@@ -54,7 +54,7 @@ resource "aws_lambda_function" "patch_instances" {
 resource "aws_cloudwatch_event_rule" "every_hour" {
   name                = "every_hour"
   description         = "Run Lambda function every hour"
-  schedule_expression = "rate(1 hour)"
+  schedule_expression = "cron(15 * * * ? *)"
 }
 
 resource "aws_cloudwatch_event_target" "lambda_target" {
