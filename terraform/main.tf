@@ -7,20 +7,20 @@ data "aws_caller_identity" "current" {}
 
 ## EC2 instances
 resource "aws_instance" "example" {
-  count                = 3
-  ami                  = "ami-01816d07b1128cd2d"
-  instance_type        = "t2.micro"
+  count                = var.ec2_count
+  ami                  = var.ami
+  instance_type        = var.instance_type
   iam_instance_profile = "AmazonSSMRoleForInstancesQuickSetup"
 
   tags = {
     Name       = "instance-${count.index}"
-    auto-patch = "first-sunday-01"
+    auto-patch = "second-tuesday-00"
   }
 }
 
 
 locals {
-    lambda_function_name = "patch_instances"
+    lambda_function_name = var.function_name
 }
 
 ## Lambda function
