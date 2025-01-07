@@ -51,6 +51,10 @@ def list_ec2_instances_by_tag() -> List[str]:
                 {
                     'Name': f'tag:{patch_tag_key}',
                     'Values': [tag_value]
+                },
+                {
+                    'Name': 'instance-state-name',
+                    'Values': ['running']
                 }
             ]
         )
