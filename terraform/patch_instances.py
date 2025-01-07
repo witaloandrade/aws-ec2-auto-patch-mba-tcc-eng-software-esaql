@@ -7,7 +7,9 @@ patch_tag_key = 'auto-patch'
 
 # Configure logging
 logger = logging.getLogger()
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logger.setLevel("INFO")
+# Used to print logs to local execution
+# logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 def get_week_of_month(date: datetime) -> int:
     """
