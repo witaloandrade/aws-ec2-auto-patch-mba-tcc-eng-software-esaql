@@ -4,14 +4,13 @@
         {
             "Effect": "Allow",
             "Action": [
-                "ec2:Describe*",
-                "ec2:GetSecurityGroupsForVpc"
+                "ec2:Describe*"
             ],
             "Resource": "*"
         },
         {
             "Effect": "Allow",
-            "Action": "elasticloadbalancing:Describe*",
+            "Action": "ssm:SendCommand",
             "Resource": "*"
         },
         {
@@ -21,11 +20,6 @@
                 "cloudwatch:GetMetricStatistics",
                 "cloudwatch:Describe*"
             ],
-            "Resource": "*"
-        },
-        {
-            "Effect": "Allow",
-            "Action": "autoscaling:Describe*",
             "Resource": "*"
         },
         {
@@ -42,13 +36,6 @@
             "Resource": [
                 "arn:aws:logs:us-east-1:${accound_id}:log-group:/aws/lambda/${lambda_function_name}:*"
             ]
-        },
-        {
-            "Sid": "VisualEditor0",
-            "Effect": "Allow",
-            "Action": "ssm:SendCommand",
-            "Resource": "*"
         }
-        
     ]
 }
