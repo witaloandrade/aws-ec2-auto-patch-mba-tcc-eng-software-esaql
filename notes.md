@@ -13,4 +13,5 @@ Reqs, TODO
  - lambda to find ec2 to patch - done
  - terraform to deploy many ec2 instances 
  
+ - Lancar AMI velha e fazer patch da AMI e coletar dados
  

@@ -1,36 +1,4 @@
-provider "aws" {
-  region = "us-east-1"
-}
-
-data "aws_caller_identity" "current" {}
-
-
-## EC2 instances
-resource "aws_instance" "example" {
-  count                = var.ec2_count
-  ami                  = var.ami
-  instance_type        = var.instance_type
-  iam_instance_profile = "AmazonSSMRoleForInstancesQuickSetup"
-
-  tags = {
-    Name       = "instance-${count.index}"
-    auto-patch = "second-tuesday-00"
-  }
-}
-
-
-locals {
-    lambda_function_name = var.function_name
-}
-
 ## Lambda function
-
-data "archive_file" "lambda_function" {
-  type        = "zip"
-  source_file = "${path.module}/${local.lambda_function_name}.py"
-  output_path = "${path.module}/patch_instances.zip"
-}
-
 resource "aws_iam_role" "lambda_role" {
   name = "lambda_execution_role"
   assume_role_policy = jsonencode({
@@ -50,7 +18,7 @@ resource "aws_iam_role" "lambda_role" {
 resource "aws_iam_policy" "lambda_role_policy" {
   policy = templatefile("${path.module}/lambda_role_policy.json", {
     lambda_function_name = aws_lambda_function.patch_instances.function_name,
-    accound_id = data.aws_caller_identity.current.account_id
+    accound_id           = data.aws_caller_identity.current.account_id
   })
 }
 
@@ -59,9 +27,16 @@ resource "aws_iam_role_policy_attachment" "lambda_policy_attachment" {
   policy_arn = aws_iam_policy.lambda_role_policy.arn
 }
 
+data "archive_file" "lambda_function" {
+  type        = "zip"
+  source_file = "${path.module}/${local.lambda_function_name}.py"
+  output_path = "${path.module}/patch_instances.zip"
+}
+
+
 resource "aws_lambda_function" "patch_instances" {
   filename         = data.archive_file.lambda_function.output_path
-  function_name    = "${local.lambda_function_name}"
+  function_name    = local.lambda_function_name
   role             = aws_iam_role.lambda_role.arn
   handler          = "${local.lambda_function_name}.lambda_handler"
   source_code_hash = data.archive_file.lambda_function.output_base64sha256
@@ -84,7 +59,7 @@ resource "aws_cloudwatch_event_rule" "every_hour" {
 
 resource "aws_cloudwatch_event_target" "lambda_target" {
   rule      = aws_cloudwatch_event_rule.every_hour.name
-  target_id = "${local.lambda_function_name}"
+  target_id = local.lambda_function_name
   arn       = aws_lambda_function.patch_instances.arn
 }
 
