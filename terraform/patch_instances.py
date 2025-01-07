@@ -7,7 +7,7 @@ patch_tag_key = 'auto-patch'
 
 # Configure logging
 logger = logging.getLogger()
-logger.setLevel(logging.INFO)
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 def get_week_of_month(date: datetime) -> int:
     """
@@ -77,6 +77,7 @@ def patch_instances(instances: List[str]) -> None:
             response = ssm.send_command(
                 InstanceIds=[instance],
                 DocumentName='AWS-RunPatchBaseline',
+                Comment=instance,
                 Parameters={'Operation': ['Install']}
             )
             if response['ResponseMetadata']['HTTPStatusCode'] == 200:
