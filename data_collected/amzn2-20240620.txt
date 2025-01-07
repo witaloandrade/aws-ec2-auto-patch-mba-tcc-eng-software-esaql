@@ -1,0 +1,62 @@
+amzn2-ami-kernel-5.10-hvm-2.0.202401
+
+
+AMI ID: ami-0195204d5dce06d99
+
+
+
+Details
+
+Storage
+
+Tags
+AMI ID
+ami-0195204d5dce06d99
+Image type
+machine
+Platform details
+Linux/UNIX
+Root device type
+EBS
+AMI name
+amzn2-ami-kernel-5.10-hvm-2.0.20240620.0-x86_64-gp2
+Owner account ID
+137112412989
+Architecture
+x86_64
+Usage operation
+RunInstances
+Root device name
+/dev/xvda
+Status
+ Available
+Source
+amazon/amzn2-ami-kernel-5.10-hvm-2.0.20240620.0-x86_64-gp2
+Virtualization type
+hvm
+Boot mode
+–
+State reason
+–
+Creation date
+2024-06-21T01:15:19.000Z
+Kernel ID
+–
+Description
+Amazon Linux 2 Kernel 5.10 AMI 2.0.20240620.0 x86_64 HVM gp2
+Product codes
+–
+RAM disk ID
+–
+Deprecation time
+Mon Jun 30 2025 21:00:00 GMT-0300 (Brasilia Standard Time)
+Block devices
+/dev/xvda=snap-098c4d2d5707a202f:8:true:gp2
+Deregistration protection
+–
+Allowed image
+-
+Source AMI ID
+–
+Source AMI Region
+–

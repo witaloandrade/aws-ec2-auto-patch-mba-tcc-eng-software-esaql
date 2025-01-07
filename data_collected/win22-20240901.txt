@@ -1,0 +1,89 @@
+ami-0888db1202897905c
+
+Windows_Server-2022-English-Full-Base-2024.09.11
+
+AMI ID: ami-0888db1202897905c
+
+
+
+Details
+
+Storage
+
+Tags
+AMI ID
+ami-0888db1202897905c
+Image type
+machine
+Platform details
+Windows
+Root device type
+EBS
+AMI name
+Windows_Server-2022-English-Full-Base-2024.09.11
+Owner account ID
+801119661308
+Architecture
+x86_64
+Usage operation
+RunInstances:0002
+Root device name
+/dev/sda1
+Status
+ Available
+Source
+amazon/Windows_Server-2022-English-Full-Base-2024.09.11
+Virtualization type
+hvm
+Boot mode
+–
+State reason
+–
+Creation date
+2024-09-11T05:42:43.000Z
+Kernel ID
+–
+Fast launch status
+–
+Fast launch status reason
+–
+Fast launch target resource count
+–
+Fast launch max parallel launches
+–
+Description
+Microsoft Windows Server 2022 Full Locale English AMI provided by Amazon
+Product codes
+–
+RAM disk ID
+–
+Deprecation time
+Fri Sep 11 2026 02:42:43 GMT-0300 (Brasilia Standard Time)
+Block devices
+/dev/sda1=snap-0931dec8ae439079f:30:true:gp2
+xvdca=ephemeral0
+xvdcb=ephemeral1
+xvdcc=ephemeral2
+xvdcd=ephemeral3
+xvdce=ephemeral4
+xvdcf=ephemeral5
+xvdcg=ephemeral6
+xvdch=ephemeral7
+xvdci=ephemeral8
+xvdcj=ephemeral9
+xvdck=ephemeral10
+xvdcl=ephemeral11
+xvdcm=ephemeral12
+xvdcn=ephemeral13
+xvdco=ephemeral14
+xvdcp=ephemeral15
+xvdcq=ephemeral16
+xvdcr=ephemeral17
+xvdcs=ephemeral18
+xvdct=ephemeral19
+xvdcu=ephemeral20
+xvdcv=ephemeral21
+xvdcw=ephemeral22
+xvdcx=ephemeral23
+xvdcy=ephemeral24
+xvdcz=ephemeral25
