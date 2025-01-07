@@ -3,5 +3,5 @@
 # Lambda Variables
 variable "function_name" {
   description = "The name of the Lambda function"
-  default     = "patch_instances"
+  default     = "ec2-autopatch"
 }
