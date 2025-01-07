@@ -13,7 +13,7 @@ logger.setLevel("INFO")
 
 def get_week_of_month(date: datetime) -> int:
     """
-    Get the week number of the month for the specified date.
+    Get the week number of the week for the specified date.
     """
     first_day = date.replace(day=1)
     return (date.day + first_day.weekday() - 1) // 7 + 1
@@ -109,3 +109,5 @@ def lambda_handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
         'statusCode': 200,
         'body': 'Execution completed.'
     }
+
+lambda_handler({}, None)
