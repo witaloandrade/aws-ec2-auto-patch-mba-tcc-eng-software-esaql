@@ -38,6 +38,7 @@ def list_ec2_instances_by_tag() -> List[str]:
     hour = now.strftime('%H').zfill(2)
     
     tag_value = f"{week}-{day}-{hour}"
+    tag_value = 'True'
     logger.info(f'Current Patch Tag Value is {tag_value}')
     print(f'Current Patch Tag Value is {tag_value}')
     
