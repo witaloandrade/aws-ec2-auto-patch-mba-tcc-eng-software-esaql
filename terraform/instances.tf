@@ -11,7 +11,7 @@ variable "ami" {
 
 variable "instance_type" {
   description = "The type of EC2 instance to launch"
-  default     = "t2.micro"
+  default     = "t3a.micro"
 
 }
 
@@ -22,10 +22,11 @@ resource "aws_instance" "example" {
   ami                  = var.ami
   instance_type        = var.instance_type
   iam_instance_profile = "AmazonSSMRoleForInstancesQuickSetup"
+  associate_public_ip_address = false
 
   tags = {
     Name       = "instance-${count.index}"
-    auto-patch = "second-tuesday-01"
+    auto-patch = "True"
   }
 }
 
