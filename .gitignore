@@ -5,3 +5,4 @@
 .terraform*
 terraform/patch_instances.zip
 notes.md
+data_collected/*
