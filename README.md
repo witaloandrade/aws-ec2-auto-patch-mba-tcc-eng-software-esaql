@@ -1,4 +1,4 @@
-# Automating the process of installing security updates on operating systems
+# Automating the process of installing security updates on operating systems on EC2 Instances on AWS Amazon Web Services
 
 
 Patching management in operating systems is an essential process to maintain the security and integrity of systems. It prevents system failures, outages, data breaches, unauthorized access, and system vulnerabilities from being exploited by unauthorized individuals. In cases where system vulnerabilities were exploited it led to damage to an organization's image or data, theft of sensitive data, theft of personal data or access to privileged information.  In many ways, affecting companies to whom a system belongs or the people the services are provided.
