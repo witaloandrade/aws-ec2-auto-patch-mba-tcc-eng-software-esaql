@@ -6,7 +6,7 @@ variable "ec2_count" {
 
 variable "ami" {
   description = "The AMI to use for the EC2 instances"
-  default     = "ami-00016c578cbc69023" # amzn2-ami-kernel-5.10-hvm-2.0.20241031.0-x86_64-ebs
+  default     = "ami-0c0b74d29acd0cd97" # amzn2-ami-kernel-5.10-hvm-2.0.20241031.0-x86_64-ebs
 }
 
 variable "instance_type" {
